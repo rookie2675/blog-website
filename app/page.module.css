@@ -1,0 +1,21 @@
+.articles {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.article {
+    padding: 5%;
+    border-radius: 5%;
+    background-color: white;
+}
+
+.description {
+    text-align: justify;
+}
+
+.buttonContainer {
+    margin-top: 2%;
+    display: flex;
+    justify-content: right;
+}
