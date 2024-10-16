@@ -12,9 +12,7 @@ export default async function Home() {
                 {articles.map((article, index) => (
                     <article key={index} className={styles.article}>
                         <h2>{article.title}</h2>
-                        <p className={styles.description}>
-                            {article.shortDescription}
-                        </p>
+                        <p className={styles.description}>{article.summary}</p>
                         <div className={styles.buttonContainer}>
                             <Link href={`/article/${article.id}`}>
                                 Read more...
