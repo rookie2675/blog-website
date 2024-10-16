@@ -10,10 +10,10 @@ h1 {
 }
 
 h2 {
-    color: black;
     font-size: 24px;
+    font-weight: normal;
 }
 
 p {
-    color: grey;
+    text-align: justify;
 }
