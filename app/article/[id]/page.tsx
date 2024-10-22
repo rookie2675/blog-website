@@ -3,7 +3,8 @@
 import { articles } from "@/data/database";
 import { Article } from "@/types/article";
 
-export default async function Page({ params }: { params: { id: number } }) {
+export default async function Page(props: { params: Promise<{ id: number }> }) {
+    const params = await props.params;
     const article: Article | undefined = articles.find((article) => {
         return article.id == params.id;
     });
