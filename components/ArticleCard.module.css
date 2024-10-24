@@ -1,0 +1,20 @@
+.title {
+    color: black;
+}
+
+.article {
+    padding: 5%;
+    border-radius: 5%;
+    background-color: white;
+}
+
+.description {
+    color: black;
+    text-align: justify;
+}
+
+.buttonContainer {
+    margin-top: 2%;
+    display: flex;
+    justify-content: right;
+}
