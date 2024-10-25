@@ -1,8 +1,13 @@
 import Link from "next/link";
-import styles from "./ArticleCard.module.css"; // Create a CSS module for styling
+import styles from "./ArticleCard.module.css";
 import { Article } from "@/types/article";
+import { JSX } from "react";
 
-export default function ArticleCard({ article }: { article: Article }) {
+export default function ArticleCard({
+    article,
+}: {
+    article: Article;
+}): JSX.Element {
     return (
         <article className={styles.article}>
             <h2 className={styles.title}>{article.title}</h2>
