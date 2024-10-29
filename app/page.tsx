@@ -4,13 +4,26 @@ import { articles } from "@/data/database";
 import styles from "./page.module.css";
 import ArticleCard from "@/components/ArticleCard";
 import { Article } from "@/types/article";
+import SearchBar from "@/components/SearchBar";
 
-export default async function Home() {
+export default async function Home(props: {
+    searchParams?: Promise<{ query?: string }>;
+}) {
+    const searchParams = await props.searchParams;
+    const query = searchParams?.query || "";
+
+    const filteredArticles = articles.filter((article: Article) =>
+        article.title.toLowerCase().includes(query.toLowerCase()),
+    );
+
     return (
         <div className={styles.container}>
-            <h1>Articles</h1>
+            <div className={styles.header}>
+                <h1>Articles</h1>
+                <SearchBar />
+            </div>
             <div className={styles.articles}>
-                {articles.map((article: Article, index: number) => (
+                {filteredArticles.map((article: Article, index: number) => (
                     <ArticleCard key={index} article={article} />
                 ))}
             </div>
