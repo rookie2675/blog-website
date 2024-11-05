@@ -1,16 +1,18 @@
 "use server";
 
-import { articles } from "@/data/database";
 import styles from "./page.module.css";
 import ArticleCard from "@/components/ArticleCard";
 import { Article } from "@/types/article";
 import SearchBar from "@/components/SearchBar";
+import { prisma } from "@/prisma/prisma";
 
 export default async function Home(props: {
     searchParams?: Promise<{ query?: string }>;
 }) {
     const searchParams = await props.searchParams;
     const query = searchParams?.query || "";
+
+    const articles = await prisma.article.findMany();
 
     const filteredArticles = articles.filter((article: Article) =>
         article.title.toLowerCase().includes(query.toLowerCase()),

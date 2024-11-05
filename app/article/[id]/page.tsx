@@ -1,12 +1,13 @@
 "use server";
 
-import { articles } from "@/data/database";
-import { Article } from "@/types/article";
+import { prisma } from "@/prisma/prisma";
 
 export default async function Page(props: { params: Promise<{ id: number }> }) {
     const params = await props.params;
-    const article: Article | undefined = articles.find((article) => {
-        return article.id == params.id;
+    const article = await prisma.article.findUnique({
+        where: {
+            id: Number(params.id),
+        },
     });
 
     if (!article) {
