@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma/prisma";
+import Link from "next/link";
 
 export default async function Page(props: { params: Promise<{ id: number }> }) {
     const params = await props.params;
@@ -29,7 +30,9 @@ export default async function Page(props: { params: Promise<{ id: number }> }) {
                 <h1>{article.title}</h1>
                 <p>
                     <strong>Author: </strong>
-                    {article.author.name}
+                    <Link href={`/author/${article.authorId}`}>
+                        {article.author.name}
+                    </Link>
                 </p>
                 <p>{article.body}</p>
             </div>
