@@ -2,10 +2,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const initialArticles = [
+const articles = [
     {
         title: "The Future of AI in Healthcare: Revolutionizing Patient Care",
-        author: "John Doe",
+        authorId: 1,
         summary:
             "Artificial Intelligence is transforming the healthcare industry, from early diagnosis to personalized treatment plans. This article explores how AI-powered tools are streamlining medical workflows and improving patient outcomes, with a look at the ethical and regulatory challenges that come with this technology.",
         body: `Artificial Intelligence (AI) is making significant strides in the healthcare sector, offering advancements in diagnostics, treatment personalization, and patient monitoring.
@@ -19,7 +19,7 @@ const initialArticles = [
     },
     {
         title: "5G and Beyond: What’s Next for Mobile Networks?",
-        author: "Jane Smith",
+        authorId: 2,
         summary:
             "As 5G networks continue to roll out globally, the possibilities for faster and more reliable wireless communication are expanding. In this article, we examine the real-world applications of 5G technology, its impact on industries like gaming and transportation, and what innovations we can expect from future generations of mobile networks.",
         body: `The deployment of 5G networks has ushered in a new era of connectivity, offering faster speeds, lower latency, and more reliable connections than its predecessor, 4G.
@@ -34,7 +34,7 @@ const initialArticles = [
     },
     {
         title: "Blockchain and Supply Chain: Enhancing Transparency and Security",
-        author: "Emily Johnson",
+        authorId: 3,
         summary:
             "Blockchain technology is more than just cryptocurrency. Its potential to revolutionize supply chain management is gaining traction, offering enhanced transparency, security, and traceability. This article dives into how companies are leveraging blockchain to solve logistical challenges and improve operational efficiency across various industries.",
         body: `Blockchain technology is being increasingly adopted in supply chain management to address long-standing issues related to transparency, trust, and security.
@@ -49,7 +49,7 @@ const initialArticles = [
     },
     {
         title: "Renewable Energy Trends: Solar and Wind Leading the Way",
-        author: "Alice Green",
+        authorId: 4,
         summary:
             "Renewable energy is rapidly transforming the power landscape, with solar and wind taking center stage. This article examines the latest technological advancements and policy shifts accelerating the adoption of these clean energy sources, as well as their impact on reducing carbon emissions.",
         body: `The push for clean energy has made solar and wind power the fastest-growing sectors in the global energy market.
@@ -63,7 +63,7 @@ const initialArticles = [
     },
     {
         title: "The Rise of Quantum Computing: Opportunities and Challenges",
-        author: "Michael Stevens",
+        authorId: 5,
         summary:
             "Quantum computing is set to revolutionize industries by offering unprecedented computational power. This article delves into the principles behind quantum technology, its potential applications, and the current challenges that need to be overcome for widespread adoption.",
         body: `Quantum computing leverages the principles of quantum mechanics to process information in ways that classical computers cannot. By using quantum bits, or qubits, it can perform complex calculations at unprecedented speeds, opening up new possibilities for fields like cryptography, artificial intelligence, and materials science.
@@ -74,7 +74,7 @@ const initialArticles = [
     },
     {
         title: "Cybersecurity in the Digital Age: Emerging Threats and Solutions",
-        author: "Sarah Lee",
+        authorId: 6,
         summary:
             "As digital transformation accelerates, cybersecurity has become a critical concern for individuals and businesses alike. This article explores the latest threats in the digital landscape, such as ransomware and phishing, and highlights innovative solutions to protect sensitive information.",
         body: `With the rise of digital connectivity, cyber threats have become more sophisticated, targeting individuals, businesses, and even government infrastructure. Ransomware attacks and phishing scams are among the most common threats, often leading to significant financial losses and data breaches.
@@ -85,12 +85,27 @@ const initialArticles = [
     },
 ];
 
+const authors = [
+    { name: "John Doe" },
+    { name: "Jane Doe" },
+    { name: "Michael Stevens" },
+    { name: "Mary Rose" },
+    { name: "Steve Dawn" },
+    { name: "Carl Keegan" },
+];
+
 const seed = async () => {
     await prisma.article.deleteMany();
 
-    for (const post of initialArticles) {
+    for (const author of authors) {
+        await prisma.author.create({
+            data: author,
+        });
+    }
+
+    for (const article of articles) {
         await prisma.article.create({
-            data: post,
+            data: article,
         });
     }
 };

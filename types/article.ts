@@ -1,14 +1,16 @@
+import { Author } from "./author";
+
 export class Article {
     id: number;
     title: string;
-    author: string;
+    author: Author;
     summary: string;
     body: string;
 
     constructor(
         id: number,
         title: string,
-        author: string,
+        author: Author,
         summary: string,
         body: string,
     ) {

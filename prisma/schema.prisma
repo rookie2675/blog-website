@@ -8,9 +8,16 @@ datasource db {
 }
 
 model Article {
-    id      Int    @id @default(autoincrement())
-    title   String
-    author  String
-    summary String
-    body    String
+    id       Int    @id @default(autoincrement())
+    title    String
+    summary  String
+    body     String
+    authorId Int
+    author   Author @relation(fields: [authorId], references: [id])
+}
+
+model Author {
+    id       Int       @id @default(autoincrement())
+    name     String
+    articles Article[]
 }

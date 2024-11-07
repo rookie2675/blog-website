@@ -8,6 +8,9 @@ export default async function Page(props: { params: Promise<{ id: number }> }) {
         where: {
             id: Number(params.id),
         },
+        include: {
+            author: true,
+        },
     });
 
     if (!article) {
@@ -26,7 +29,7 @@ export default async function Page(props: { params: Promise<{ id: number }> }) {
                 <h1>{article.title}</h1>
                 <p>
                     <strong>Author: </strong>
-                    {article.author}
+                    {article.author.name}
                 </p>
                 <p>{article.body}</p>
             </div>
