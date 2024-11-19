@@ -5,6 +5,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { Article } from "@/types/article";
 import SearchBar from "@/components/SearchBar";
 import { prisma } from "@/prisma/prisma";
+import Link from "next/link";
 
 export default async function Home(props: {
     searchParams?: Promise<{ query?: string }>;
@@ -22,7 +23,10 @@ export default async function Home(props: {
         <div className={styles.container}>
             <div className={styles.header}>
                 <h1>Articles</h1>
-                <SearchBar />
+                <div className={styles.dashboard}>
+                    <Link href={"/login"}>Login</Link>
+                    <SearchBar />
+                </div>
             </div>
             <div className={styles.articles}>
                 {filteredArticles.map((article: Article, index: number) => (
