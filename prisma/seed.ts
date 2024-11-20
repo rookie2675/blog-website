@@ -94,6 +94,13 @@ const authors = [
     { name: "Carl Keegan" },
 ];
 
+const users = [
+    {
+        name: "Test",
+        email: "Test",
+    },
+];
+
 const seed = async () => {
     await prisma.article.deleteMany();
 
@@ -106,6 +113,12 @@ const seed = async () => {
     for (const article of articles) {
         await prisma.article.create({
             data: article,
+        });
+    }
+
+    for (const user of users) {
+        await prisma.user.create({
+            data: user,
         });
     }
 };
