@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./ArticleCard.module.css";
-import { Article } from "@/types/article";
+import { Article } from "@prisma/client";
 import { JSX } from "react";
 
 export default function ArticleCard({

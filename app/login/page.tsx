@@ -1,13 +1,13 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import styles from "./page.module.css";
 
 export default function Page() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    function handleSubmit(event: any): void {
+    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
         event.preventDefault();
         console.log(username);
         console.log(password);

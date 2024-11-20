@@ -2,9 +2,9 @@
 
 import styles from "./page.module.css";
 import ArticleCard from "@/components/ArticleCard";
-import { Article } from "@/types/article";
 import SearchBar from "@/components/SearchBar";
 import { prisma } from "@/prisma/prisma";
+import { Article } from "@prisma/client";
 import Link from "next/link";
 
 export default async function Home(props: {
@@ -15,7 +15,7 @@ export default async function Home(props: {
 
     const articles = await prisma.article.findMany();
 
-    const filteredArticles = articles.filter((article: Article) =>
+    const filteredArticles: Article[] = articles.filter((article: Article) =>
         article.title.toLowerCase().includes(query.toLowerCase()),
     );
 
@@ -29,7 +29,7 @@ export default async function Home(props: {
                 </div>
             </div>
             <div className={styles.articles}>
-                {filteredArticles.map((article: Article, index: number) => (
+                {filteredArticles.map((article, index: number) => (
                     <ArticleCard key={index} article={article} />
                 ))}
             </div>
