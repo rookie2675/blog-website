@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-import { checkEnvironmentFile } from "./utilities/checkEnvironment.mjs";
+import { checkEnvironmentVariables } from "./utilities/checkEnvironmentVariables.mjs";
 
-checkEnvironmentFile();
+checkEnvironmentVariables();
 
 const nextConfig = {};
 

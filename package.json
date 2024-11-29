@@ -4,10 +4,9 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "next build && tsx prisma/seed.ts",
+        "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "prisma-seed": "tsx prisma/seed.ts"
+        "lint": "next lint"
     },
     "dependencies": {
         "@prisma/client": "^5.22.0",
