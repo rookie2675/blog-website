@@ -12,3 +12,21 @@ h1 {
 p {
     text-align: justify;
 }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    border: 2px solid darkcyan;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+button:hover {
+    transition: 0.3s;
+    background-color: darkcyan;
+}

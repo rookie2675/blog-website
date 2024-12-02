@@ -45,6 +45,7 @@ export default function Page() {
                     ></input>
                 </div>
                 <button type="submit">Login</button>
+                No account? <a href="/signup">Sign Up</a>
             </div>
         </form>
     );
