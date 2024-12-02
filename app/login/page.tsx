@@ -29,18 +29,18 @@ export default function Page() {
         <form onSubmit={handleSubmit}>
             <div className={styles.formContainer}>
                 <div className={styles.fieldContainer}>
-                    <label htmlFor="username">Username:</label>
                     <input
                         type="text"
                         value={username}
+                        placeholder="Username"
                         onChange={handleUsernameChange}
                     ></input>
                 </div>
                 <div className={styles.fieldContainer}>
-                    <label htmlFor="password">Password:</label>
                     <input
                         type="password"
                         value={password}
+                        placeholder="Password"
                         onChange={handlePasswordChange}
                     ></input>
                 </div>

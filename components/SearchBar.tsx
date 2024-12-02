@@ -10,7 +10,7 @@ export default function SearchBar(): JSX.Element {
 
     const [query, setQuery] = useState("");
 
-    function handleSubmit() {
+    function handleSubmit(): void {
         const parameters = new URLSearchParams(searchParameters);
 
         if (query) {
@@ -24,10 +24,10 @@ export default function SearchBar(): JSX.Element {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input value={query} onChange={(e) => setQuery(e.target.value)} />
             <button type="submit" aria-label="Search">
                 🔎
             </button>
+            <input value={query} placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
         </form>
     );
 }

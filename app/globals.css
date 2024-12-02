@@ -30,3 +30,8 @@ button:hover {
     transition: 0.3s;
     background-color: darkcyan;
 }
+
+input {
+    color: white;
+    background-color: transparent;
+}

@@ -39,16 +39,13 @@ export default function Page() {
         <form onSubmit={handleSubmit}>
             <div className={styles.formContainer}>
                 <div className={styles.fieldContainer}>
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" id="email" name="email" value={formData.email} onChange={handleChange} />
+                    <input type="text" id="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
                 </div>
                 <div className={styles.fieldContainer}>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
+                    <input type="password" id="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} />
                 </div>
                 <div className={styles.fieldContainer}>
-                    <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} />
                 </div>
                 <button type="submit">Sign Up</button>
             </div>
