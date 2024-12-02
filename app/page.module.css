@@ -3,15 +3,3 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dashboard {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}

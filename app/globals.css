@@ -32,6 +32,12 @@ button:hover {
 }
 
 input {
+    border: none;
+    border-bottom: 2px solid darkcyan;
     color: white;
     background-color: transparent;
+}
+
+input:focus {
+    outline: none;
 }
