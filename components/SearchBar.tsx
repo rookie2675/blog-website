@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { JSX, useState } from "react";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar(): JSX.Element {
     const pathName = usePathname();
@@ -24,10 +25,10 @@ export default function SearchBar(): JSX.Element {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type="submit" aria-label="Search">
+            <button className={styles.button} type="submit" aria-label="Search">
                 🔎
             </button>
-            <input value={query} placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
+            <input className={styles.input} type="text" value={query} placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
         </form>
     );
 }

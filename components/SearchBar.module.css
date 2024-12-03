@@ -1,0 +1,10 @@
+.button {
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.input {
+    background-color: #121212;
+    border: none;
+}

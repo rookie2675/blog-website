@@ -1,20 +1,17 @@
-.title {
-    color: black;
-}
-
 .article {
+    border: 1px solid darkcyan;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
     padding: 5%;
     border-radius: 5%;
-    background-color: white;
 }
 
 .description {
-    color: black;
     text-align: justify;
 }
 
-.buttonContainer {
-    margin-top: 2%;
-    display: flex;
-    justify-content: right;
+.readMore {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 5px;
 }
