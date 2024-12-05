@@ -1,10 +1,16 @@
-.fieldContainer {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+.button {
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: large;
 }
 
-.formContainer {
+.input {
+    font-size: large;
+}
+
+.form {
+    height: 100vh;
+    justify-content: center;
     gap: 10px;
     display: flex;
     flex-direction: column;
