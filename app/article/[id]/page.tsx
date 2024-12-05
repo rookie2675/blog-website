@@ -2,8 +2,9 @@
 
 import { prisma } from "@/prisma/prisma";
 import Link from "next/link";
+import styles from "./page.module.css";
 
-export default async function Page(props: { params: Promise<{ id: number }> }) {
+export default async function Page(props: { params: Promise<{ id: number }> }): Promise<JSX.Element> {
     const params = await props.params;
     const article = await prisma.article.findUnique({
         where: {
@@ -26,8 +27,8 @@ export default async function Page(props: { params: Promise<{ id: number }> }) {
         );
     } else {
         return (
-            <div>
-                <h1>{article.title}</h1>
+            <div className={styles.container}>
+                <h1 className={styles.title}>{article.title}</h1>
                 <p>
                     <strong>Author: </strong>
                     <Link href={`/author/${article.authorId}`}>
