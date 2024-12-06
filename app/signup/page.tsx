@@ -41,65 +41,62 @@ export default function Page(): JSX.Element {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className={styles.formContainer}>
-                <div className={styles.fieldContainer}>
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className={styles.fieldContainer}>
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className={styles.fieldContainer}>
-                    <input
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className={styles.fieldContainer}>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className={styles.fieldContainer}>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit">Sign Up</button>
-            </div>
-        </form>
+        <div className={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <input
+                    className={styles.input}
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    className={styles.input}
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    className={styles.input}
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    className={styles.input}
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    className={styles.input}
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    required
+                />
+                <button className={styles.button} type="submit">
+                    Sign Up
+                </button>
+            </form>
+        </div>
     );
 }
