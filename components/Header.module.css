@@ -7,9 +7,9 @@
 }
 
 .header {
+    flex: 0;
     font-size: large;
-    height: 25px;
-    padding: 1%;
+    padding: 0.5%;
     gap: 5%;
     display: flex;
     border-bottom: 1px solid;

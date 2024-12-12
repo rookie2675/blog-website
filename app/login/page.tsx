@@ -6,11 +6,10 @@ import Link from "next/link";
 import { z } from "zod";
 
 export default function Page(): JSX.Element {
-
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-    })
+    });
 
     const formSchema = z.object({
         email: z.string().email(),
@@ -32,17 +31,33 @@ export default function Page(): JSX.Element {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className={styles.form}>
-                <div className={styles.field}>
-                    <input className={styles.input} id="email" name="email" type="text" value={formData.email} placeholder="Email" onChange={handleChange} required></input>
-                </div>
-                <div className={styles.field}>
-                    <input className={styles.input} id="password " name="password" type="password" value={formData.password} placeholder="Password" onChange={handleChange} required></input>
-                </div>
-                <button className={styles.button} type="submit">Login</button>
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <input
+                    className={styles.input}
+                    id="email"
+                    name="email"
+                    type="text"
+                    value={formData.email}
+                    placeholder="Email"
+                    onChange={handleChange}
+                    required
+                ></input>
+                <input
+                    className={styles.input}
+                    id="password "
+                    name="password"
+                    type="password"
+                    value={formData.password}
+                    placeholder="Password"
+                    onChange={handleChange}
+                    required
+                ></input>
+                <button className={styles.button} type="submit">
+                    Login
+                </button>
                 <Link href="/signup">No account? Click here to sign up</Link>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 }

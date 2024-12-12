@@ -5,10 +5,10 @@ import { HomeIcon, PersonIcon } from "@primer/octicons-react";
 
 export default function Header(): JSX.Element {
     return (
-        <div className={styles.header}>
-            <Link href="/"> <HomeIcon className={styles.home} size={24} /></Link>
-            <Link href={"/login"}> <PersonIcon className={styles.login} size={24} /></Link>
+        <header className={styles.header}>
+            <Link href="/"> <HomeIcon className={styles.home} size={30} /></Link>
+            <Link href={"/login"}> <PersonIcon className={styles.login} size={30} /></Link>
             <SearchBar />
-        </div>
+        </header>
     );
 }

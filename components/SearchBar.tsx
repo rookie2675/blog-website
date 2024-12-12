@@ -34,7 +34,7 @@ export default function SearchBar(): JSX.Element {
     return (
         <div className={styles.container}>
             <button className={styles.button} type="button" aria-label="Search" onClick={handleButtonClick}>
-                <SearchIcon className={styles.icon} size={20} />
+                <SearchIcon className={styles.icon} size={30} />
             </button>
             <form onSubmit={handleSubmit}>
                 {showInput && (

@@ -1,6 +1,6 @@
 .article {
     border: 1px solid darkcyan;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.025);
     position: relative;
     padding: 5%;
     border-radius: 5%;

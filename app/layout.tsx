@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
     title: "Blog Website",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>{children}</body>
-        </html>
+            <body style={{ display: "flex", flexDirection: "column" }}>
+                <Header />
+                <main style={{ flex: 1 }}>
+                    {children}
+                </main>
+            </body>
+        </html >
     );
 }

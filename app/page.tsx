@@ -1,6 +1,5 @@
 "use server";
 
-import Header from "@/components/Header";
 import styles from "./page.module.css";
 import ArticleCard from "@/components/ArticleCard";
 import { prisma } from "@/prisma/prisma";
@@ -13,14 +12,22 @@ export default async function Home(props: { searchParams?: Promise<{ query?: str
     const articles: ReadonlyArray<Article> = (await prisma.article.findMany()).filter((article: Article) =>
         article.title.toLowerCase().includes(query.toLowerCase()));
 
+    // Duplicated the articles to check how tha page handles scrolling
     return (
-        <div className={styles.container}>
-            <Header />
-            <div className={styles.articles}>
-                {articles.map((article: Article, index: number) => (
-                    <ArticleCard key={index} article={article} />
-                ))}
-            </div>
+        <div className={styles.articles}>
+            {articles.map((article: Article, index: number) => (
+                <ArticleCard key={index} article={article} />
+            ))}
+            {articles.map((article: Article, index: number) => (
+                <ArticleCard key={index} article={article} />
+            ))}
+            {articles.map((article: Article, index: number) => (
+                <ArticleCard key={index} article={article} />
+            ))}
+            {articles.map((article: Article, index: number) => (
+                <ArticleCard key={index} article={article} />
+            ))}
+
         </div>
     );
 }

@@ -8,9 +8,18 @@
     font-size: large;
 }
 
-.form {
-    height: 100vh;
+.container {
+    height: 100%;
+    align-items: center;
     justify-content: center;
+    display: flex;
+}
+
+.form {
+    border-radius: 5px;
+    border: 1px solid darkcyan;
+    padding: 5%;
+    background-color: rgba(255, 255, 255, 0.025);
     gap: 10px;
     display: flex;
     flex-direction: column;
