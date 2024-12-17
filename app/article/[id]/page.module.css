@@ -12,7 +12,7 @@
     text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
-    border-bottom: 1px solid darkcyan;
+    border-bottom: 1px solid var(--accent-color);
 }
 
 .author {
