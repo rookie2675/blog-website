@@ -10,4 +10,15 @@
 
 .title {
     text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-bottom: 1px solid darkcyan;
+}
+
+.author {
+    margin-bottom: 2%;
+}
+
+.body {
+    margin-bottom: 2%;
 }

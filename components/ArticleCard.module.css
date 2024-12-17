@@ -6,6 +6,11 @@
     border-radius: 5%;
 }
 
+.title {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .description {
     text-align: justify;
 }

@@ -19,23 +19,18 @@ export default async function Page(props: { params: Promise<{ id: number }> }): 
         return (
             <div>
                 <h1>Article Not Found</h1>
-                <p>
-                    Sorry, we couldn&apos;t find the article you&apos;re looking
-                    for.
-                </p>
+                <p>Sorry, we couldn&apos;t find the article you&apos;re looking for.</p>
             </div>
         );
     } else {
         return (
             <div className={styles.container}>
                 <h1 className={styles.title}>{article.title}</h1>
-                <p>
+                <p className={styles.author}>
                     <strong>Author: </strong>
-                    <Link href={`/author/${article.authorId}`}>
-                        {article.author.name}
-                    </Link>
+                    <Link href={`/author/${article.authorId}`}>{article.author.name}</Link>
                 </p>
-                <p>{article.body}</p>
+                <p className={styles.body}>{article.body}</p>
             </div>
         );
     }
