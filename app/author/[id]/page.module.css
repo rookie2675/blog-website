@@ -1,0 +1,21 @@
+.container {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.title {
+    text-align: center;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: lightblue;
+}

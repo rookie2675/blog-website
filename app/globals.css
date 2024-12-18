@@ -1,6 +1,7 @@
 :root {
     --secondary-color: rgba(255, 255, 255, 0.025);
     --accent-color: darkcyan;
+    --border-radius: 5px;
     color-scheme: light dark;
 }
 
@@ -22,6 +23,8 @@ body {
 }
 
 main {
+    padding-left: 2em;
+    padding-right: 2em;
     flex: 1;
 }
 
