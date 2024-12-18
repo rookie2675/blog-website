@@ -1,4 +1,5 @@
 :root {
+    --secondary-color: rgba(255, 255, 255, 0.025);
     --accent-color: darkcyan;
     color-scheme: light dark;
 }
@@ -39,7 +40,6 @@ a {
 
 button {
     cursor: pointer;
-    color: white;
     border: 1px solid var(--accent-color);
     background-color: transparent;
     border-radius: 5px;
