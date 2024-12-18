@@ -3,20 +3,31 @@
     background-color: rgba(255, 255, 255, 0.025);
     position: relative;
     padding: 5%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
     border-radius: 5%;
+    max-height: 400px;
 }
 
 .title {
-    margin-top: 2%;
-    margin-bottom: 2%;
+    text-align: justify;
+    font-weight: bold;
+    font-size: x-large;
+}
+.title:hover {
+    color: var(--accent-color);
+}
+
+.date {
+    font-weight: lighter;
 }
 
 .description {
     text-align: justify;
-}
-
-.readMore {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 5px;
+    display: -webkit-box;
+    line-clamp: 10;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/app/components/Header";
 import { GeistSans } from "geist/font/sans";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
     title: "Blog Website",

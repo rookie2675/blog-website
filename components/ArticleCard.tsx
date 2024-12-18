@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 import Link from "next/link";
 import styles from "./ArticleCard.module.css";
@@ -6,20 +6,30 @@ import { Article } from "@prisma/client";
 import { JSX } from "react";
 import { prisma } from "@/prisma/prisma";
 
-export default async function ArticleCard({ article, }: { article: Article; }): Promise<JSX.Element> {
+interface ArticleCardProps {
+    article: Article;
+}
 
-    const author = await prisma.author.findUnique({
+export default async function ArticleCard(props: ArticleCardProps): Promise<JSX.Element> {
+    const article = props.article;
+
+    const author = await prisma.user.findUnique({
         where: {
-            id: Number(article.authorId),
+            id: Number(props.article.userId),
         },
     });
 
     return (
         <article className={styles.article}>
-            <Link className={styles.link} href={`/author/${article.authorId}`}><b>Author: </b>{author?.name} </Link>
-            <h2 className={styles.title}>{article.title}</h2>
+            <Link className={styles.link} href={`/author/${props.article.userId}`}>
+                <b>Author: </b>
+                {author?.firstName} {author?.lastName}
+            </Link>
+            <Link className={styles.title} href={`/article/${article.id}`}>
+                {article.title}
+            </Link>
+            <div className={styles.date}>March 20, 2023</div>
             <p className={styles.description}>{article.summary}</p>
-            <Link className={styles.readMore} href={`/article/${article.id}`}><b>Read more...</b></Link>
         </article>
     );
 }
