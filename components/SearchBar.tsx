@@ -18,7 +18,6 @@ export default function SearchBar(): JSX.Element {
         setShowInput(!showInput);
     }
 
-
     function handleSubmit(): void {
         const parameters = new URLSearchParams(searchParameters);
 
@@ -34,7 +33,7 @@ export default function SearchBar(): JSX.Element {
     return (
         <div className={styles.container}>
             <button className={styles.button} type="button" aria-label="Search" onClick={handleButtonClick}>
-                <SearchIcon className={styles.icon} size={30} />
+                <SearchIcon className={styles.icon} size={20} />
             </button>
             <form onSubmit={handleSubmit}>
                 {showInput && (
@@ -45,7 +44,7 @@ export default function SearchBar(): JSX.Element {
                         placeholder="Search"
                         onChange={(e) => setQuery(e.target.value)}
                         initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: '200px' }}
+                        animate={{ opacity: 1, width: "200px" }}
                         exit={{ opacity: 0, width: 0 }}
                         transition={{ duration: 0.3 }}
                         onBlur={() => setShowInput(false)}
