@@ -1,6 +1,11 @@
+@import url("../styles/form.css");
+@import url("../styles/table-of-contents.css");
+
 :root {
-    --secondary-color: rgba(255, 255, 255, 0.025);
-    --accent-color: darkcyan;
+    --error-color: #ff3737;
+    --surface-dark: rgba(255, 255, 255, 0.025);
+    --suraface-darkest: rgba(255, 255, 255, 0.05);
+    --outline-color: darkcyan;
     --border-radius: 5px;
     color-scheme: light dark;
 }
@@ -43,22 +48,26 @@ a {
 
 button {
     cursor: pointer;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--outline-color);
     background-color: transparent;
     border-radius: 5px;
 }
 
 button:hover {
     transition: 0.3s;
-    background-color: var(--accent-color);
+    background-color: var(--outline-color);
 }
 
 input {
     border: none;
-    border-bottom: 1px solid var(--accent-color);
     background-color: transparent;
 }
 
 input:focus {
     outline: none;
+}
+
+label {
+    font-size: larger;
+    font-weight: bold;
 }

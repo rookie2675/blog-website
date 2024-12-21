@@ -1,63 +1,37 @@
-"use client";
-
-import { FormEvent, useState } from "react";
+import { JSX } from "react";
 import styles from "./page.module.css";
-import Link from "next/link";
-import { z } from "zod";
+import { prisma } from "@/prisma/prisma";
+import { User } from "@prisma/client";
+import LoginForm from "@/components/LoginForm";
 
-export default function Page(): JSX.Element {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
+/**
+ * Attempts to log in a user with the given email and password. If the user's
+email and password match a user in the database, the user is returned. If
+ * not, null is returned.
+ *
+ * @param {string} email The email address of the user to log in.
+ * @param {string} password The password of the user to log in.
+ * @return {Promise<User | null>} A promise resolving to the user or null if the user could not be found.
+ */
+async function login(email: string, password: string): Promise<User | null> {
+    "use server";
+    return (await prisma.user.findFirst({
+        where: {
+            email: email,
+            password: password,
+        },
+    })) as User;
+}
 
-    const formSchema = z.object({
-        email: z.string().email(),
-        password: z.string(),
-    });
-
-    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-        event.preventDefault();
-        const parsedData = formSchema.parse(formData);
-        console.log(parsedData);
-    }
-
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
-        const { name, value } = event.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value,
-        }));
-    }
-
+/**
+ * Page to log in a user.
+ *
+ * @return {Promise<JSX.Element>} A promise resolving to the JSX element representing the page.
+ */
+export default async function Page(): Promise<JSX.Element> {
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit} className={styles.form}>
-                <input
-                    className={styles.input}
-                    id="email"
-                    name="email"
-                    type="text"
-                    value={formData.email}
-                    placeholder="Email"
-                    onChange={handleChange}
-                    required
-                ></input>
-                <input
-                    className={styles.input}
-                    id="password "
-                    name="password"
-                    type="password"
-                    value={formData.password}
-                    placeholder="Password"
-                    onChange={handleChange}
-                    required
-                ></input>
-                <button className={styles.button} type="submit">
-                    Login
-                </button>
-                <Link href="/signup">No account? Click here to sign up</Link>
-            </form>
+            <LoginForm login={login} />
         </div>
     );
 }
